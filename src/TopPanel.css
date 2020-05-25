@@ -1,4 +1,9 @@
 .SearchBar {
+    width: 20%;
+}
+
+.TopPanel {
+    position: center;
     text-align: center;
-    
+    align-items: center;
 }

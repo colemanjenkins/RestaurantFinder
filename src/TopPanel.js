@@ -67,7 +67,7 @@ export default class TopPanel extends Component {
             // }
         }
 
-        request.send()
+        // request.send()
     }
     render() {
         return (

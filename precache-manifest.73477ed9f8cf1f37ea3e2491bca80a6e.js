@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "e94c288890cf686ddb3d8c454d9c442b",
+    "revision": "89e9aaf5bb8c22d798ad43de5182584c",
     "url": "/RestaurantFinder/index.html"
   },
   {
@@ -8,7 +8,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/RestaurantFinder/static/css/2.af3c1da9.chunk.css"
   },
   {
-    "revision": "08f3308a8b1e8174e460",
+    "revision": "800a8c324c57cd5dc4b2",
     "url": "/RestaurantFinder/static/css/main.f6cffc85.chunk.css"
   },
   {
@@ -20,8 +20,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/RestaurantFinder/static/js/2.3ae448f6.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "08f3308a8b1e8174e460",
-    "url": "/RestaurantFinder/static/js/main.b8412eb9.chunk.js"
+    "revision": "800a8c324c57cd5dc4b2",
+    "url": "/RestaurantFinder/static/js/main.41d650cc.chunk.js"
   },
   {
     "revision": "1a60179ca0017250590d",

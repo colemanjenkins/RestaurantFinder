@@ -1,23 +1,25 @@
 {
   "files": {
-    "main.css": "/RestaurantFinder/static/css/main.5f361e03.chunk.css",
-    "main.js": "/RestaurantFinder/static/js/main.ed21ee17.chunk.js",
-    "main.js.map": "/RestaurantFinder/static/js/main.ed21ee17.chunk.js.map",
+    "main.css": "/RestaurantFinder/static/css/main.f6cffc85.chunk.css",
+    "main.js": "/RestaurantFinder/static/js/main.8941562a.chunk.js",
+    "main.js.map": "/RestaurantFinder/static/js/main.8941562a.chunk.js.map",
     "runtime-main.js": "/RestaurantFinder/static/js/runtime-main.26d25f42.js",
     "runtime-main.js.map": "/RestaurantFinder/static/js/runtime-main.26d25f42.js.map",
-    "static/js/2.4785adf8.chunk.js": "/RestaurantFinder/static/js/2.4785adf8.chunk.js",
-    "static/js/2.4785adf8.chunk.js.map": "/RestaurantFinder/static/js/2.4785adf8.chunk.js.map",
+    "static/css/2.af3c1da9.chunk.css": "/RestaurantFinder/static/css/2.af3c1da9.chunk.css",
+    "static/js/2.3ae448f6.chunk.js": "/RestaurantFinder/static/js/2.3ae448f6.chunk.js",
+    "static/js/2.3ae448f6.chunk.js.map": "/RestaurantFinder/static/js/2.3ae448f6.chunk.js.map",
     "index.html": "/RestaurantFinder/index.html",
-    "precache-manifest.9b35af1724949242616f582340a9a340.js": "/RestaurantFinder/precache-manifest.9b35af1724949242616f582340a9a340.js",
+    "precache-manifest.0e283b22a6cdade4dfa2d967fd76d402.js": "/RestaurantFinder/precache-manifest.0e283b22a6cdade4dfa2d967fd76d402.js",
     "service-worker.js": "/RestaurantFinder/service-worker.js",
-    "static/css/main.5f361e03.chunk.css.map": "/RestaurantFinder/static/css/main.5f361e03.chunk.css.map",
-    "static/js/2.4785adf8.chunk.js.LICENSE.txt": "/RestaurantFinder/static/js/2.4785adf8.chunk.js.LICENSE.txt",
-    "static/media/logo.svg": "/RestaurantFinder/static/media/logo.5d5d9eef.svg"
+    "static/css/2.af3c1da9.chunk.css.map": "/RestaurantFinder/static/css/2.af3c1da9.chunk.css.map",
+    "static/css/main.f6cffc85.chunk.css.map": "/RestaurantFinder/static/css/main.f6cffc85.chunk.css.map",
+    "static/js/2.3ae448f6.chunk.js.LICENSE.txt": "/RestaurantFinder/static/js/2.3ae448f6.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.26d25f42.js",
-    "static/js/2.4785adf8.chunk.js",
-    "static/css/main.5f361e03.chunk.css",
-    "static/js/main.ed21ee17.chunk.js"
+    "static/css/2.af3c1da9.chunk.css",
+    "static/js/2.3ae448f6.chunk.js",
+    "static/css/main.f6cffc85.chunk.css",
+    "static/js/main.8941562a.chunk.js"
   ]
 }

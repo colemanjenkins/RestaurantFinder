@@ -4,6 +4,10 @@ import TopPanel from './TopPanel';
 import List from "./List";
 import Map from "./Map";
 
+import "bootstrap/dist/css/bootstrap.min.css";
+
+
+
 const GOOGLE_API_KEY = process.env.REACT_APP_GOOGLE_API_KEY
 
 export default class App extends Component {

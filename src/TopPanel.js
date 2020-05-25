@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
+import Container from 'react-bootstrap/Container';
+
 import axios from 'axios';
+import './TopPanel.css';
 
 const GOOGLE_API_KEY = process.env.REACT_APP_GOOGLE_API_KEY;
 
@@ -13,7 +16,8 @@ export default class TopPanel extends Component {
     }
 
     getData = () => {
-        const axios=require("axios");
+        const axios = require("axios");
+
         // axios.get("https://maps.googleapis.com/maps/api/place/nearbysearch/json?", {
         //     params: {
         //         key: "000",
@@ -32,36 +36,42 @@ export default class TopPanel extends Component {
         //         // always executed
         //     });
         axios({
-            "method":"GET",
-            "url":"https://transloc-api-1-2.p.rapidapi.com/stops.json",
-            "headers":{
-            "content-type":"application/octet-stream",
-            "x-rapidapi-host":"transloc-api-1-2.p.rapidapi.com",
-            "x-rapidapi-key":"c96a129019msh032ff6b90f063edp12836cjsn86ac9b68c0ab",
-            "useQueryString":true
-            },"params":{
-            "callback":"call",
-            "geo_area":"35.80176%2C-78.64347%7C35.78061%2C-78.68218",
-            "agencies":"12%2C16"
+            "method": "GET",
+            "url": "https://transloc-api-1-2.p.rapidapi.com/stops.json",
+            "headers": {
+                "content-type": "application/octet-stream",
+                "x-rapidapi-host": "transloc-api-1-2.p.rapidapi.com",
+                "x-rapidapi-key": "c96a129019msh032ff6b90f063edp12836cjsn86ac9b68c0ab",
+                "useQueryString": true
+            }, "params": {
+                "callback": "call",
+                "geo_area": "35.80176%2C-78.64347%7C35.78061%2C-78.68218",
+                "agencies": "12%2C16"
             }
+        })
+            .then((response) => {
+                console.log(response)
             })
-            .then((response)=>{
-              console.log(response)
+            .catch((error) => {
+                console.log(error)
             })
-            .catch((error)=>{
-              console.log(error)
-            })
+        this.props.passSearchInput(document.getElementById("SearchText").value)
     }
+
+
     render() {
         return (
             <div>
-                <Form>
-                    <Form.Group controlID="SearchBar">
-                        <Form.Label>Restaurant Search Bar</Form.Label>
-                        <Form.Control type="textarea" placeholder="Search for a restaurant" />
-                    </Form.Group>
-                </Form>
-                <Button onClick={this.getData}>Search</Button>
+                <Container className="TopPanel">
+                    <Form>
+                        <Form.Group>
+                            <h3>Restaurant Search</h3>
+                            <Form.Control id="SearchText" className="SearchBar" type="textarea" placeholder="Search for a Charlottesville restaurant" />
+                        </Form.Group>
+                    </Form>
+                    <Button onClick={this.getData}
+                    > Search</Button>
+                </Container>
             </div >
         )
     }

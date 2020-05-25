@@ -1,23 +1,23 @@
 {
   "files": {
-    "main.css": "/RestaurantApp/static/css/main.5f361e03.chunk.css",
-    "main.js": "/RestaurantApp/static/js/main.a05d3da8.chunk.js",
-    "main.js.map": "/RestaurantApp/static/js/main.a05d3da8.chunk.js.map",
-    "runtime-main.js": "/RestaurantApp/static/js/runtime-main.38b6c4cd.js",
-    "runtime-main.js.map": "/RestaurantApp/static/js/runtime-main.38b6c4cd.js.map",
-    "static/js/2.4785adf8.chunk.js": "/RestaurantApp/static/js/2.4785adf8.chunk.js",
-    "static/js/2.4785adf8.chunk.js.map": "/RestaurantApp/static/js/2.4785adf8.chunk.js.map",
-    "index.html": "/RestaurantApp/index.html",
-    "precache-manifest.f37763511f4a9947da89ca00c7a5ecb2.js": "/RestaurantApp/precache-manifest.f37763511f4a9947da89ca00c7a5ecb2.js",
-    "service-worker.js": "/RestaurantApp/service-worker.js",
-    "static/css/main.5f361e03.chunk.css.map": "/RestaurantApp/static/css/main.5f361e03.chunk.css.map",
-    "static/js/2.4785adf8.chunk.js.LICENSE.txt": "/RestaurantApp/static/js/2.4785adf8.chunk.js.LICENSE.txt",
-    "static/media/logo.svg": "/RestaurantApp/static/media/logo.5d5d9eef.svg"
+    "main.css": "/RestaurantFinder/static/css/main.5f361e03.chunk.css",
+    "main.js": "/RestaurantFinder/static/js/main.ed21ee17.chunk.js",
+    "main.js.map": "/RestaurantFinder/static/js/main.ed21ee17.chunk.js.map",
+    "runtime-main.js": "/RestaurantFinder/static/js/runtime-main.26d25f42.js",
+    "runtime-main.js.map": "/RestaurantFinder/static/js/runtime-main.26d25f42.js.map",
+    "static/js/2.4785adf8.chunk.js": "/RestaurantFinder/static/js/2.4785adf8.chunk.js",
+    "static/js/2.4785adf8.chunk.js.map": "/RestaurantFinder/static/js/2.4785adf8.chunk.js.map",
+    "index.html": "/RestaurantFinder/index.html",
+    "precache-manifest.9b35af1724949242616f582340a9a340.js": "/RestaurantFinder/precache-manifest.9b35af1724949242616f582340a9a340.js",
+    "service-worker.js": "/RestaurantFinder/service-worker.js",
+    "static/css/main.5f361e03.chunk.css.map": "/RestaurantFinder/static/css/main.5f361e03.chunk.css.map",
+    "static/js/2.4785adf8.chunk.js.LICENSE.txt": "/RestaurantFinder/static/js/2.4785adf8.chunk.js.LICENSE.txt",
+    "static/media/logo.svg": "/RestaurantFinder/static/media/logo.5d5d9eef.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.38b6c4cd.js",
+    "static/js/runtime-main.26d25f42.js",
     "static/js/2.4785adf8.chunk.js",
     "static/css/main.5f361e03.chunk.css",
-    "static/js/main.a05d3da8.chunk.js"
+    "static/js/main.ed21ee17.chunk.js"
   ]
 }

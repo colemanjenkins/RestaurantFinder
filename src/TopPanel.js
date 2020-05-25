@@ -13,7 +13,7 @@ export default class TopPanel extends Component {
     }
 
     getData = () => {
-        const axios=require("axios");
+        // const axios=require("axios");
         // axios.get("https://maps.googleapis.com/maps/api/place/nearbysearch/json?", {
         //     params: {
         //         key: "000",
@@ -31,26 +31,43 @@ export default class TopPanel extends Component {
         //     .then(function () {
         //         // always executed
         //     });
-        axios({
-            "method":"GET",
-            "url":"https://transloc-api-1-2.p.rapidapi.com/stops.json",
-            "headers":{
-            "content-type":"application/octet-stream",
-            "x-rapidapi-host":"transloc-api-1-2.p.rapidapi.com",
-            "x-rapidapi-key":"c96a129019msh032ff6b90f063edp12836cjsn86ac9b68c0ab",
-            "useQueryString":true
-            },"params":{
-            "callback":"call",
-            "geo_area":"35.80176%2C-78.64347%7C35.78061%2C-78.68218",
-            "agencies":"12%2C16"
-            }
-            })
-            .then((response)=>{
-              console.log(response)
-            })
-            .catch((error)=>{
-              console.log(error)
-            })
+        // axios({
+        //     "method":"GET",
+        //     "url":"https://transloc-api-1-2.p.rapidapi.com/stops.json",
+        //     "headers":{
+        //     "content-type":"application/octet-stream",
+        //     "x-rapidapi-host":"transloc-api-1-2.p.rapidapi.com",
+        //     "x-rapidapi-key":"c96a129019msh032ff6b90f063edp12836cjsn86ac9b68c0ab",
+        //     "useQueryString":true
+        //     },"params":{
+        //     "callback":"call",
+        //     "geo_area":"35.80176%2C-78.64347%7C35.78061%2C-78.68218",
+        //     "agencies":"12%2C16"
+        //     }
+        //     })
+        //     .then((response)=>{
+        //       console.log(response)
+        //     })
+        //     .catch((error)=>{
+        //       console.log(error)
+        //     })
+        let request = new XMLHttpRequest()
+
+        request.open('GET', 'https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/nearbysearch/json?key=AIzaSyCtsU4hkzYAIbx3woGLJ-zekJUWxh9T3Oc&radius=100000&location=38.0293,-78.4767&type=restaurant', true)
+        request.onload = function () {
+            // Begin accessing JSON data here
+            var data = JSON.parse(this.response)
+            console.log(data);
+            // if (request.status >= 200 && request.status < 400) {
+            //     data.forEach(movie => {
+            //         console.log(movie.title)
+            //     })
+            // } else {
+            //     console.log('error')
+            // }
+        }
+
+        request.send()
     }
     render() {
         return (

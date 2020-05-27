@@ -294,8 +294,6 @@ export default class App extends Component {
     this.setState({sortField: field})
   }
 
-
-
   render() {
     return (
       <div className="App">

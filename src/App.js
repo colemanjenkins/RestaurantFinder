@@ -273,9 +273,9 @@ export default class App extends Component {
     }
   }
 
-  componentDidMount = () => {
-    this.setData(dummyData);
-  }
+//   componentDidMount = () => {
+//     this.setData(dummyData);
+//   }
 
   setData = (new_data) => {
     if (new_data.status === "OK") {

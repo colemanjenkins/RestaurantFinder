@@ -19,9 +19,8 @@ export default class List extends Component {
                             </Card.Header>
                             <Accordion.Collapse eventKey={count++ + ""}>
                                 <Card.Body>
-                                    rating - {restaurant.rating}
-
-                                    <br></br>location - {restaurant.vicinity}
+                                    Rating - {restaurant.rating}
+                                    <br></br>Location - {restaurant.vicinity}
                                 </Card.Body>
                             </Accordion.Collapse>
                         </Card>

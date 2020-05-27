@@ -60,8 +60,7 @@ export default class TopPanel extends Component {
         let retData;
         fetch(url)
             .then(
-                response => response.json() // .json(), etc.
-                // same as function(response) {return response.text();}
+                response => response.json()
             ).then(
                 data => {
                     console.log(data);
@@ -89,11 +88,15 @@ export default class TopPanel extends Component {
                     <Form>
                         <Form.Group>
                             <h3>Restaurant Search</h3>
-                            <Form.Control onChange={(e) => this.updateSearchPhrase(e.target.value)} id="SearchText" className="SearchBar" type="textarea" placeholder="Search for a Charlottesville restaurant" />
+                            <Form.Control
+                                onChange={(e) => this.updateSearchPhrase(e.target.value)}
+                                id="SearchText"
+                                className="SearchBar"
+                                type="textarea"
+                                placeholder="Search for a Charlottesville restaurant" />
                         </Form.Group>
                     </Form>
-                    <Button onClick={this.getData}
-                    > Search</Button>
+                    <Button onClick={this.getData}>Search</Button>
                 </Container>
             </div >
         )

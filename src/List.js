@@ -4,22 +4,48 @@ import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 
 export default class List extends Component {
-    arrangeList = (field) => {
+    constructor(props){
+        super(props);
+        this.state = {
+            mutatedList: this.props.restaurants
+        }
+    }
+
+    componentDidUpdate(prevProps) {
+        if(this.props.sortField !== prevProps.sortField){
+            this.arrangeList();
+        }
+        if(this.props.restaurants !== prevProps.restaurants){
+            this.setState({mutatedList: this.props.restaurants})
+        }
+    }
+    
+    arrangeList = () => {
+        let field = this.props.sortField;
         if (field === "Prominence") {
-            return this.props.restaurants;
+            this.setState({mutatedList: this.props.restaurants});
         }
         if (field === "Open now") {
-            return this.props.restaurant.filter(place => place.opening_hours.open_now)
+            this.setState({mutatedList: this.props.restaurant.filter(place => place.opening_hours.open_now)})
         }
         let sortFunc;
         switch (field) {
-            case "Price":
+            case "Price (Lowest to Highest)":
                 sortFunc = (place, place2) => {
                     // console.log("sorting")
                     let price1 = parseInt(place.price_level) || 1000;
                     let price2 = parseInt(place2.price_level) || 1000
                     // console.log(i + " " + i2);
                     return price1 - price2 // low price first
+                }
+                break;
+            case "Price (Highest to Lowest)":
+                sortFunc = (place, place2) => {
+                    // console.log("sorting")
+                    let price1 = parseInt(place.price_level) || -10;
+                    let price2 = parseInt(place2.price_level) || -10;
+                    // console.log(i + " " + i2);
+                    return -(price1 - price2) // high price first
                 }
                 break;
             case "Rating":
@@ -31,7 +57,7 @@ export default class List extends Component {
                 break;
         }
 
-        return this.props.restaurants.sort(sortFunc);
+        this.setState({mutatedList: this.props.restaurants.sort(sortFunc)});
     }
     render() {
         const restaurants = this.props.restaurants;
@@ -39,8 +65,7 @@ export default class List extends Component {
 
         return <div style={{ textAlign: "left" }}>
             <Accordion >
-                {this.arrangeList(this.props.sortField)
-                    .map(restaurant => {
+                {this.state.mutatedList.map(restaurant => {
                         return (
                             <Card>
                                 <Card.Header>

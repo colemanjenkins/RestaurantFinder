@@ -81,7 +81,11 @@ export default class TopPanel extends Component {
     }
 
     render() {
-        const sortVars = ["Prominence", "Price", "Rating", "Open Now"]
+        const sortVars = ["Prominence",
+            "Price (Lowest to Highest)",
+            "Price (Highest to Lowest)",
+            "Rating",
+            "Open Now"]
         return (
             <div>
                 <Container className="TopPanel">
@@ -101,10 +105,10 @@ export default class TopPanel extends Component {
                     <Dropdown>
                         <Dropdown.Toggle variant="success" id="dropdown-basic">Sort by...</Dropdown.Toggle>
                         <Dropdown.Menu>
-                            {sortVars.map(field=>{
-                                return <Dropdown.Item onClick={()=>this.props.setSort(field)}>{field}</Dropdown.Item>
+                            {sortVars.map(field => {
+                                return <Dropdown.Item onClick={() => this.props.setSort(field)}>{field}</Dropdown.Item>
                             })}
-                            
+
                         </Dropdown.Menu>
                     </Dropdown>
                 </Container>

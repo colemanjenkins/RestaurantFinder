@@ -7,6 +7,7 @@ import Dropdown from 'react-bootstrap/Dropdown'
 import './TopPanel.css';
 
 const GOOGLE_API_KEY = process.env.REACT_APP_GOOGLE_API_KEY;
+console.log(GOOGLE_API_KEY)
 
 export default class TopPanel extends Component {
     constructor(props) {

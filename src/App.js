@@ -299,9 +299,12 @@ export default class App extends Component {
       <div className="App">
         <TopPanel
           setData={this.setData}
-          passSearchInput={this.passSearchInput} />
+          passSearchInput={this.passSearchInput} 
+          setSort={this.setSort}/>
         <div className="display">
-          <List restaurants={this.state.restaurants} display={this.state.displayRestaurant} />
+          <List restaurants={this.state.restaurants} 
+          display={this.state.displayRestaurant} 
+          sortField={this.state.sortField}/>
           <RestaurantMap restaurants={this.state.restaurants} changeDisplayRestaurant={this.changeDisplayRestaurant} />
           {/* <button onClick={this.test}>Print App.js data</button> */}
         </div>

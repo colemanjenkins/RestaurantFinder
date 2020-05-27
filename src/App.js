@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import TopPanel from './TopPanel';
 import List from "./List";
-import Map from "./Map";
+import RestaurantMap from "./Map";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 
@@ -34,9 +34,11 @@ export default class App extends Component {
         <TopPanel
           setData={this.setData}
           passSearchInput={this.passSearchInput} />
-        <List restaurants={this.state.restaurants} />
-        <Map />
-        <button onClick={this.test}>Print App.js data</button>
+        <div className="display">
+          <List restaurants={this.state.restaurants} display={this.state.displayRestaurant} />
+          <RestaurantMap restaurants={this.state.restaurants} changeDisplayRestaurant={this.changeDisplayRestaurant} />
+          {/* <button onClick={this.test}>Print App.js data</button> */}
+        </div>
       </div>
     );
   }

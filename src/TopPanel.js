@@ -86,7 +86,7 @@ export default class TopPanel extends Component {
                 <Container className="TopPanel">
                     <Form>
                         <Form.Group>
-                            <h3>Chrlottesville Restaurant Search</h3>
+                            <h3>Charlottesville Restaurant Search</h3>
                             <Form.Control
                                 onChange={(e) => this.updateSearchPhrase(e.target.value)}
                                 id="SearchText"

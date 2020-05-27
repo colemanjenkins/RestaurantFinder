@@ -32,7 +32,7 @@ export default class TopPanel extends Component {
         const query = this.state.searchPhrase;
         console.log(query);
         // console.log(process.env.REACT_APP_GOOGLE_API_KEY)
-        const url = `https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/nearbysearch/json?key=${GOOGLE_API_KEY}&radius=10000&location=38.0293,-78.4767&type=restaurant&keyword=${query}`;
+        const url = `https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/nearbysearch/json?key=${GOOGLE_API_KEY}&radius=100000&location=38.0293,-78.4767&type=restaurant&keyword=${query}`;
 
         // let request = new XMLHttpRequest()
 
@@ -57,7 +57,6 @@ export default class TopPanel extends Component {
         // }
         // }
 
-        let retData;
         fetch(url)
             .then(
                 response => response.json() // .json(), etc.
@@ -88,8 +87,10 @@ export default class TopPanel extends Component {
                 <Container className="TopPanel">
                     <Form>
                         <Form.Group>
-                            <h3>Restaurant Search</h3>
-                            <Form.Control onChange={(e) => this.updateSearchPhrase(e.target.value)} id="SearchText" className="SearchBar" type="textarea" placeholder="Search for a Charlottesville restaurant" />
+                            <h3>Charlottesville Restaurant Search</h3>
+                            <Form.Control onChange={(e) => this.updateSearchPhrase(e.target.value)}
+                                id="SearchText" className="SearchBar" type="textarea"
+                                placeholder="Search for a Charlottesville restaurant" />
                         </Form.Group>
                     </Form>
                     <Button onClick={this.getData}

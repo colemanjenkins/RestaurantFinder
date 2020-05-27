@@ -40,3 +40,9 @@ export default class App extends Component {
   }
 }
 
+/*
+Price
+Rating
+Open now
+Prominence (just default)
+*/

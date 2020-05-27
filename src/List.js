@@ -11,7 +11,7 @@ export default class List extends Component {
             <Accordion >
                 {restaurants.map(restaurant => {
                     return (
-                        <Card>
+                        <Card key={restaurant.id}>
                             <Card.Header>
                                 <Accordion.Toggle as={Button} variant="link" eventKey={count + ""}>
                                     {restaurant.name} {restaurant.price_level != null ? "- " + "$".repeat(restaurant.price_level) : ""}

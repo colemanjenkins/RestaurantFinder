@@ -16,50 +16,24 @@ export default class TopPanel extends Component {
     }
 
     getData = () => {
-        // axios.get("https://maps.googleapis.com/maps/api/place/nearbysearch/json?", {
-        //     params: {
-        //         key: "000",
-        //         radius: 100000,
-        //         location: "38.0293,78.4767"
-        //     }
-        // })
-        //     .then(function (response) {
-        //         console.log("response received")
-        //         console.log(response);
-        //     })
-        //     .catch(function (error) {
-        //         console.log(error);
-        //     })
-        //     .then(function () {
-        //         // always executed
-        //     });
-        // axios({
-        //     "method":"GET",
-        //     "url":"https://transloc-api-1-2.p.rapidapi.com/stops.json",
-        //     "headers":{
-        //     "content-type":"application/octet-stream",
-        //     "x-rapidapi-host":"transloc-api-1-2.p.rapidapi.com",
-        //     "x-rapidapi-key":"c96a129019msh032ff6b90f063edp12836cjsn86ac9b68c0ab",
-        //     "useQueryString":true
-        //     },"params":{
-        //     "callback":"call",
-        //     "geo_area":"35.80176%2C-78.64347%7C35.78061%2C-78.68218",
-        //     "agencies":"12%2C16"
-        //     }
-        //     })
-        //     .then((response)=>{
-        //       console.log(response)
-        //     })
-        //     .catch((error)=>{
-        //       console.log(error)
-        //     })
-        let request = new XMLHttpRequest()
+        console.log("test");
+        // console.log(process.env.REACT_APP_GOOGLE_API_KEY)
+        const url = `https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/nearbysearch/json?key=${GOOGLE_API_KEY}&radius=10000&location=38.0293,-78.4767&type=restaurant`;
+        
+        // let request = new XMLHttpRequest()
 
-        request.open('GET', 'https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/nearbysearch/json?key=AIzaSyCtsU4hkzYAIbx3woGLJ-zekJUWxh9T3Oc&radius=100000&location=38.0293,-78.4767&type=restaurant', true)
-        request.onload = function () {
-            // Begin accessing JSON data here
-            var data = JSON.parse(this.response)
-            console.log(data);
+        // request.onreadystatechange = function () {
+        //     if (request.readyState == XMLHttpRequest.DONE) {
+        //         alert(request.responseText);
+        //     }
+        // }
+        // request.open('GET', url, true)
+        // request.onload = function () {
+        //     // Begin accessing JSON data here
+        //     var data = JSON.parse(this.response)
+
+        //     console.log("request")
+        //     console.log(data);
             // if (request.status >= 200 && request.status < 400) {
             //     data.forEach(movie => {
             //         console.log(movie.title)
@@ -67,10 +41,29 @@ export default class TopPanel extends Component {
             // } else {
             //     console.log('error')
             // }
-        }
+        // }
+        // request.onerror = function () {
+        //     console.log("error")
+        // }
+        // request.onprogress = function() {
+        //     console.log("stuff happening")
+        // }
 
-        // request.send()
+        // request.onabort = function () {
+        //     console.log("stuff failed")
+        // }
 
+        // request.onreadystatechange = function () {
+        //     console.log("asdf");
+        // }
+
+        fetch(url)
+            .then(
+                response => response.text() // .json(), etc.
+                // same as function(response) {return response.text();}
+            ).then(
+                html => console.log(html)
+            ).catch(error => console.log(error));
     }
 
 

@@ -12,14 +12,28 @@ export default class TopPanel extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            searchPhrase: "",
         }
+        this.updateSearchPhrase = this.updateSearchPhrase.bind(this);
+    }
+
+    updateSearchPhrase = (phrase) => {
+        this.setState({
+            searchPhrase: phrase
+        });
+    }
+
+    componentDidMount = () => {
+        this.getData();
     }
 
     getData = () => {
         console.log("test");
+        const query = this.state.searchPhrase;
+        console.log(query);
         // console.log(process.env.REACT_APP_GOOGLE_API_KEY)
-        const url = `https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/nearbysearch/json?key=${GOOGLE_API_KEY}&radius=10000&location=38.0293,-78.4767&type=restaurant`;
-        
+        const url = `https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/nearbysearch/json?key=${GOOGLE_API_KEY}&radius=10000&location=38.0293,-78.4767&type=restaurant&keyword=${query}`;
+
         // let request = new XMLHttpRequest()
 
         // request.onreadystatechange = function () {
@@ -34,36 +48,37 @@ export default class TopPanel extends Component {
 
         //     console.log("request")
         //     console.log(data);
-            // if (request.status >= 200 && request.status < 400) {
-            //     data.forEach(movie => {
-            //         console.log(movie.title)
-            //     })
-            // } else {
-            //     console.log('error')
-            // }
+        // if (request.status >= 200 && request.status < 400) {
+        //     data.forEach(movie => {
+        //         console.log(movie.title)
+        //     })
+        // } else {
+        //     console.log('error')
         // }
-        // request.onerror = function () {
-        //     console.log("error")
-        // }
-        // request.onprogress = function() {
-        //     console.log("stuff happening")
         // }
 
-        // request.onabort = function () {
-        //     console.log("stuff failed")
-        // }
-
-        // request.onreadystatechange = function () {
-        //     console.log("asdf");
-        // }
-
+        let retData;
         fetch(url)
             .then(
-                response => response.text() // .json(), etc.
+                response => response.json() // .json(), etc.
                 // same as function(response) {return response.text();}
             ).then(
-                html => console.log(html)
+                data => {
+                    console.log(data);
+                    this.props.setData(data);
+                }
             ).catch(error => console.log(error));
+
+    }
+
+    passSearchInput = (SearchText) => {
+        console.log(SearchText);
+        this.setState(() => {
+            return {
+                SearchText: document.getElementById("SearchText").value
+
+            };
+        });
     }
 
 
@@ -74,7 +89,7 @@ export default class TopPanel extends Component {
                     <Form>
                         <Form.Group>
                             <h3>Restaurant Search</h3>
-                            <Form.Control id="SearchText" className="SearchBar" type="textarea" placeholder="Search for a Charlottesville restaurant" />
+                            <Form.Control onChange={(e) => this.updateSearchPhrase(e.target.value)} id="SearchText" className="SearchBar" type="textarea" placeholder="Search for a Charlottesville restaurant" />
                         </Form.Group>
                     </Form>
                     <Button onClick={this.getData}

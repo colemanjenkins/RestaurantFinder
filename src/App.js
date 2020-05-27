@@ -6,44 +6,35 @@ import Map from "./Map";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 
-
-
-const GOOGLE_API_KEY = process.env.REACT_APP_GOOGLE_API_KEY;
-
 export default class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      data: {},
+      restaurants: [], // array (will be returned by request)
       SearchText: "",
     }
   }
 
   setData = (new_data) => {
-    this.setState({ data: new_data })
+    if (new_data.status === "OK") {
+      this.setState({ restaurants: new_data.results })
+    }
   }
 
   test = () => {
-    console.log("test")
+    console.log(this.state.data)
     // require('dotenv').load();
-
   }
 
-  passSearchInput = (SearchText) => {
-    this.setState(() => {
-      return {
-        SearchText: document.getElementById("SearchText").value
-      };
-    });
-  }
+
 
   render() {
     return (
       <div className="App">
         <TopPanel setData={this.setData} passSearchInput={this.passSearchInput} />
-        <List />
+        <List restaurants={this.state.restaurants} />
         <Map />
-        <button onClick={this.test}>TEST</button>
+        <button onClick={this.test}>Print App.js data</button>
       </div>
     );
   }

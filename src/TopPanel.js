@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
+import Dropdown from 'react-bootstrap/Dropdown'
 
-import axios from 'axios';
 import './TopPanel.css';
 
 const GOOGLE_API_KEY = process.env.REACT_APP_GOOGLE_API_KEY;
@@ -80,8 +80,8 @@ export default class TopPanel extends Component {
         });
     }
 
-
     render() {
+        const sortVars = ["Prominence", "Price", "Rating", "Open Now"]
         return (
             <div>
                 <Container className="TopPanel">
@@ -97,6 +97,16 @@ export default class TopPanel extends Component {
                         </Form.Group>
                     </Form>
                     <Button onClick={this.getData}>Search</Button>
+
+                    <Dropdown>
+                        <Dropdown.Toggle variant="success" id="dropdown-basic">Sort by...</Dropdown.Toggle>
+                        <Dropdown.Menu>
+                            {sortVars.map(field=>{
+                                return <Dropdown.Item>{field}</Dropdown.Item>
+                            })}
+                            
+                        </Dropdown.Menu>
+                    </Dropdown>
                 </Container>
             </div >
         )

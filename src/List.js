@@ -8,6 +8,7 @@ export default class List extends Component {
         const restaurants = this.props.restaurants;
         let count = 0;
         return <div style={{ textAlign: "left" }}>
+            {this.props.sortField}
             <Accordion >
                 {restaurants.map(restaurant => {
                     return (

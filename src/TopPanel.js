@@ -102,7 +102,7 @@ export default class TopPanel extends Component {
                         <Dropdown.Toggle variant="success" id="dropdown-basic">Sort by...</Dropdown.Toggle>
                         <Dropdown.Menu>
                             {sortVars.map(field=>{
-                                return <Dropdown.Item>{field}</Dropdown.Item>
+                                return <Dropdown.Item onClick={()=>this.props.setSort(field)}>{field}</Dropdown.Item>
                             })}
                             
                         </Dropdown.Menu>

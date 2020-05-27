@@ -24,7 +24,7 @@ export default class TopPanel extends Component {
     }
 
     componentDidMount = () => {
-        this.getData();
+        // this.getData();
     }
 
     getData = () => {

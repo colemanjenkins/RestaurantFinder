@@ -15,6 +15,7 @@ export default class App extends Component {
     super(props);
     this.state = {
       data: {},
+      SearchText: "",
     }
   }
 
@@ -27,10 +28,19 @@ export default class App extends Component {
     // require('dotenv').load();
 
   }
+
+  passSearchInput = (SearchText) => {
+    this.setState(() => {
+      return {
+        SearchText: document.getElementById("SearchText").value
+      };
+    });
+  }
+
   render() {
     return (
       <div className="App">
-        <TopPanel setData={this.setData} />
+        <TopPanel setData={this.setData} passSearchInput={this.passSearchInput} />
         <List />
         <Map />
         <button onClick={this.test}>TEST</button>

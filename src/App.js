@@ -21,9 +21,9 @@ export default class App extends Component {
     }
   }
 
+  // debugging method, will delete
   test = () => {
     console.log(this.state.data)
-    // require('dotenv').load();
   }
 
 
@@ -31,7 +31,9 @@ export default class App extends Component {
   render() {
     return (
       <div className="App">
-        <TopPanel setData={this.setData} passSearchInput={this.passSearchInput} />
+        <TopPanel
+          setData={this.setData}
+          passSearchInput={this.passSearchInput} />
         <List restaurants={this.state.restaurants} />
         <Map />
         <button onClick={this.test}>Print App.js data</button>

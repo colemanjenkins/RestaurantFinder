@@ -80,7 +80,7 @@ export default class List extends Component {
                                 <Card.Body>
                                     Rating - {restaurant.rating}
                                     <br />Location - {restaurant.vicinity}
-                                    <br />{restaurant.opening_hours.open_now != null? 
+                                    <br />{(restaurant.opening_hours.open_now !== null && restaurant.opening_hours.open_now !== undefined )? 
                                     restaurant.opening_hours.open_now ? "Open now" : "Currently closed" : ""}
                                 </Card.Body>
                             </Accordion.Collapse>

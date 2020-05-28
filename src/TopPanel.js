@@ -24,6 +24,13 @@ export default class TopPanel extends Component {
         });
     }
 
+    keyPressed = (event) => {
+        if (event.key === "Enter") {
+            event.preventDefault();
+            this.getData();
+        }
+    }
+
     componentDidMount = () => {
         this.getData();
     }
@@ -72,6 +79,7 @@ export default class TopPanel extends Component {
 
     }
 
+
     passSearchInput = (SearchText) => {
         console.log(SearchText);
         this.setState(() => {
@@ -93,9 +101,10 @@ export default class TopPanel extends Component {
                 <Container className="TopPanel">
                     <Form>
                         <Form.Group>
-                            <h3>Charlottesville Restaurant Search</h3>
+                            <h1 style={{ fontWeight: "heavy" }}>Charlottesville Restaurant Search</h1>
                             <Form.Control
                                 onChange={(e) => this.updateSearchPhrase(e.target.value)}
+                                onKeyPress={this.keyPressed}
                                 id="SearchText"
                                 className="SearchBar"
                                 type="textarea"

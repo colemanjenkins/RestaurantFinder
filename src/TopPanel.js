@@ -31,9 +31,11 @@ export default class TopPanel extends Component {
     getData = () => {
         console.log("test");
         const query = this.state.searchPhrase;
+        const LOCATION = "38.0293,-78.4767" // Charlottesville coordinates
+        const RADIUS = 5000 // 5 kilometers
         console.log(query);
         // console.log(process.env.REACT_APP_GOOGLE_API_KEY)
-        const url = `https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/nearbysearch/json?key=${GOOGLE_API_KEY}&radius=100000&location=38.0293,-78.4767&type=restaurant&keyword=${query}`;
+        const url = `https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/nearbysearch/json?key=${GOOGLE_API_KEY}&radius=${RADIUS}&location=${LOCATION}&type=restaurant&keyword=${query}`;
 
         // let request = new XMLHttpRequest()
 

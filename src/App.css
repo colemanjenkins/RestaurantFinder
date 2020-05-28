@@ -13,6 +13,7 @@
 .list {
   overflow-y: auto;
   height: 75vh;
+  min-width: 45vh;
 }
 
 .map {

@@ -67,16 +67,21 @@ export default class List extends Component {
     render() {
         let count = 0;
         return <div className="list" style={{ textAlign: "left" }}>
-            <Accordion >
+            <Accordion activeKey={this.props.displayRestaurantIndex != null ? this.props.displayRestaurantIndex.toString() : null}>
                 {this.state.mutatedList.map(restaurant => {
                     return (
                         <Card key={restaurant.id}>
                             <Card.Header>
-                                <Accordion.Toggle as={Button} variant="link" eventKey={count + ""}>
+                                <Accordion.Toggle 
+                                as={Button} 
+                                variant="link" 
+                                eventKey={this.props.restaurants.indexOf(restaurant).toString()}
+                                onClick={(e) => {this.props.setDisplayIndex(this.props.restaurants.indexOf(restaurant))}}
+                                >
                                     {restaurant.name} {restaurant.price_level != null ? "- " + "$".repeat(restaurant.price_level) : ""}
                                 </Accordion.Toggle>
                             </Card.Header>
-                            <Accordion.Collapse eventKey={count++ + ""}>
+                            <Accordion.Collapse eventKey={this.props.restaurants.indexOf(restaurant).toString()}>
                                 <Card.Body>
                                     Rating - {restaurant.rating}
                                     <br />Location - {restaurant.vicinity}

@@ -15,7 +15,8 @@ export default class App extends Component {
       this.state = {
          // restaurants: [], // array (will be returned by request)
          restaurants: dummyData, // failsafe in case web requests fail; should be overwritten immediately if they work
-         sortField: "Prominence" // default sort returned by Google API
+         sortField: "Prominence", // default sort returned by Google API
+         displayRestaurantIndex: null
       }
    }
 
@@ -30,19 +31,28 @@ export default class App extends Component {
       this.setState({ sortField: field })
    }
 
+   setDisplayIndex = (rest) => {
+      this.setState({ displayRestaurantIndex: rest })
+   }
+
    render() {
       return (
          <div className="App">
+            
             <TopPanel
                setData={this.setData}
                passSearchInput={this.passSearchInput}
                setSort={this.setSort} />
             <div className="display">
                <List restaurants={this.state.restaurants}
-                  display={this.state.displayRestaurant}
+                  displayRestaurantIndex={this.state.displayRestaurantIndex}
+                  setDisplayIndex={this.setDisplayIndex}
                   sortField={this.state.sortField} />
-               <RestaurantMap restaurants={this.state.restaurants} changeDisplayRestaurant={this.changeDisplayRestaurant} />
-               {/* <button onClick={this.test}>Print App.js data</button> */}
+               <RestaurantMap
+                  restaurants={this.state.restaurants}
+                  setDisplayIndex={this.setDisplayIndex}
+                  displayRestaurant={this.state.restaurants[this.state.displayRestaurantIndex]} />
+
             </div>
          </div>
       );

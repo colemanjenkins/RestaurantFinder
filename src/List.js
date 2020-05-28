@@ -63,7 +63,7 @@ export default class List extends Component {
         const restaurants = this.props.restaurants;
         let count = 0;
 
-        return <div style={{ textAlign: "left" }}>
+        return <div className="list" style={{ textAlign: "left" }}>
             <Accordion >
                 {this.state.mutatedList.map(restaurant => {
                         return (

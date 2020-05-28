@@ -23,7 +23,7 @@ export default class RestaurantMap extends Component {
 
     render() {
         const restaurants = this.props.restaurants;
-        return <Map center={[38.0293, -78.4767]} zoom={13} style={{ height: "100vh", width: "100%" }}>
+        return <Map className="map" center={[38.0293, -78.4767]} zoom={13} style={{ height: "75vh", width: "100%" }}>
             {this.state.displayRestaurant !== null && <Popup
                 position={[
                     this.state.displayRestaurant.geometry.location.lat,

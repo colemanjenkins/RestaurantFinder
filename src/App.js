@@ -4,7 +4,8 @@ import TopPanel from './TopPanel';
 import List from "./List";
 import RestaurantMap from "./Map";
 
-import "bootstrap/dist/css/bootstrap.min.css";
+import "bootswatch/dist/darkly/bootstrap.min.css"; 
+// import "bootstrap/dist/css/bootstrap.min.css";
 
 const dummyData = {
   "html_attributions" : [],

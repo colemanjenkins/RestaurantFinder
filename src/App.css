@@ -9,3 +9,16 @@
   justify-content: flex-start;
 
 }
+
+.list {
+  overflow-y: auto;
+  height: 75vh;
+}
+
+.map {
+  height: 75vh;
+}
+
+.topPanel {
+  height: 25vh;
+}

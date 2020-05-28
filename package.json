@@ -37,6 +37,7 @@
   },
   "devDependencies": {
     "axios": "^0.19.2",
+    "bootswatch": "^4.5.0",
     "gh-pages": "^2.2.0",
     "leaflet": "^1.6.0",
     "react-bootstrap": "^1.0.1",

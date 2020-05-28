@@ -87,7 +87,7 @@ export default class TopPanel extends Component {
             "Rating",
             "Open Now"]
         return (
-            <div>
+            <div className="topPanel">
                 <Container className="TopPanel">
                     <Form>
                         <Form.Group>

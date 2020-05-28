@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
-import './App.css';
+
 import TopPanel from './TopPanel';
 import List from "./List";
 import RestaurantMap from "./Map";
 
-import "bootswatch/dist/darkly/bootstrap.min.css"; 
+import "bootswatch/dist/yeti/bootstrap.min.css"; 
+import './App.css';
 // import "bootstrap/dist/css/bootstrap.min.css";
 
 const dummyData = {

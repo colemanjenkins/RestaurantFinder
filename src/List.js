@@ -61,14 +61,11 @@ export default class List extends Component {
                 default:
                     console.log("no sort possible")
             }
-
             this.setState({ mutatedList: this.props.restaurants.slice().sort(sortFunc) });
         }
     }
     render() {
-        // const restaurants = this.props.restaurants;
         let count = 0;
-
         return <div className="list" style={{ textAlign: "left" }}>
             <Accordion >
                 {this.state.mutatedList.map(restaurant => {

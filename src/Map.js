@@ -17,10 +17,7 @@ export default class RestaurantMap extends Component {
         })
     }
 
-
-
     //map.setView(new L.LatLng(38.0293, -78.4767),9);
-
     render() {
         const restaurants = this.props.restaurants;
         return <Map className="map" center={[38.0293, -78.4767]} zoom={13} style={{ height: "75vh", width: "100%" }}>

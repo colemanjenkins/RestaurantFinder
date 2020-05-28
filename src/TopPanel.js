@@ -7,7 +7,8 @@ import Dropdown from 'react-bootstrap/Dropdown'
 import './TopPanel.css';
 
 const GOOGLE_API_KEY = process.env.REACT_APP_GOOGLE_API_KEY;
-console.log(GOOGLE_API_KEY)
+const LOCATION = "38.0293,-78.4767" // Charlottesville coordinates
+const RADIUS = 5000 // 5 kilometers
 
 export default class TopPanel extends Component {
     constructor(props) {
@@ -32,40 +33,15 @@ export default class TopPanel extends Component {
     }
 
     componentDidMount = () => {
-        this.getData();
+        this.getData(); // fills list w/ top 20 restaurants in Cville (no search param)
     }
 
     getData = () => {
         console.log("test");
         const query = this.state.searchPhrase;
-        const LOCATION = "38.0293,-78.4767" // Charlottesville coordinates
-        const RADIUS = 5000 // 5 kilometers
+
         console.log(query);
-        // console.log(process.env.REACT_APP_GOOGLE_API_KEY)
         const url = `https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/nearbysearch/json?key=${GOOGLE_API_KEY}&radius=${RADIUS}&location=${LOCATION}&type=restaurant&keyword=${query}`;
-
-        // let request = new XMLHttpRequest()
-
-        // request.onreadystatechange = function () {
-        //     if (request.readyState == XMLHttpRequest.DONE) {
-        //         alert(request.responseText);
-        //     }
-        // }
-        // request.open('GET', url, true)
-        // request.onload = function () {
-        //     // Begin accessing JSON data here
-        //     var data = JSON.parse(this.response)
-
-        //     console.log("request")
-        //     console.log(data);
-        // if (request.status >= 200 && request.status < 400) {
-        //     data.forEach(movie => {
-        //         console.log(movie.title)
-        //     })
-        // } else {
-        //     console.log('error')
-        // }
-        // }
 
         fetch(url)
             .then(
@@ -76,18 +52,6 @@ export default class TopPanel extends Component {
                     this.props.setData(data);
                 }
             ).catch(error => console.log(error));
-
-    }
-
-
-    passSearchInput = (SearchText) => {
-        console.log(SearchText);
-        this.setState(() => {
-            return {
-                SearchText: document.getElementById("SearchText").value
-
-            };
-        });
     }
 
     render() {
@@ -119,7 +83,6 @@ export default class TopPanel extends Component {
                             {sortVars.map(field => {
                                 return <Dropdown.Item onClick={() => this.props.setSort(field)}>{field}</Dropdown.Item>
                             })}
-
                         </Dropdown.Menu>
                     </Dropdown>
                 </Container>

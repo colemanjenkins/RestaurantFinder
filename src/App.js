@@ -14,7 +14,8 @@ export default class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      restaurants: [], // array (will be returned by request)
+      // restaurants: [], // array (will be returned by request)
+      restaurants: dummyData,
       SearchText: "",
       sortField: "Prominence" // default sort returned by Google API
     }

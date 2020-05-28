@@ -8,19 +8,25 @@
   flex-direction: row;
   flex-wrap: nowrap;
   justify-content: flex-start;
-
 }
 
 .list {
   overflow-y: auto;
-  height: 75vh;
+  height: 85vh;
   min-width: 45vh;
 }
 
 .map {
-  height: 75vh;
+  height: 85vh;
 }
 
 .topPanel {
-  height: 25vh;
+  text-align: center;
+  display: flex;
+  height: 15vh;
+  border-color: darkgray;
+  border-style: none none solid none;
+  border-width: 3px;
+  margin: 0 100px 10px 100px;
+  padding-top: 10px;
 }

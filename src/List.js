@@ -28,7 +28,7 @@ export default class List extends Component {
             this.setState({ mutatedList: this.props.restaurants });
         }
         else if (field === "Open Now") {
-            this.setState({ mutatedList: this.props.restaurants.filter(place => place.opening_hours.open_now) })
+            this.setState({ mutatedList: this.props.restaurants.filter(place => place.opening_hours != null && place.opening_hours.open_now) })
         }
         else {
             let sortFunc;
@@ -70,7 +70,7 @@ export default class List extends Component {
             <Accordion >
                 {this.state.mutatedList.map(restaurant => {
                     return (
-                        <Card>
+                        <Card key={restaurant.id}>
                             <Card.Header>
                                 <Accordion.Toggle as={Button} variant="link" eventKey={count + ""}>
                                     {restaurant.name} {restaurant.price_level != null ? "- " + "$".repeat(restaurant.price_level) : ""}
@@ -80,8 +80,8 @@ export default class List extends Component {
                                 <Card.Body>
                                     Rating - {restaurant.rating}
                                     <br />Location - {restaurant.vicinity}
-                                    <br />{(restaurant.opening_hours.open_now !== null && restaurant.opening_hours.open_now !== undefined )? 
-                                    restaurant.opening_hours.open_now ? "Open now" : "Currently closed" : ""}
+                                    <br />{(restaurant.opening_hours !== null && restaurant.opening_hours !== undefined) ?
+                                        restaurant.opening_hours ? "Open now" : "Currently closed" : ""}
                                 </Card.Body>
                             </Accordion.Collapse>
                         </Card>

@@ -20,7 +20,7 @@ export default class RestaurantMap extends Component {
     //map.setView(new L.LatLng(38.0293, -78.4767),9);
     render() {
         const restaurants = this.props.restaurants;
-        return <Map className="map" center={[38.0293, -78.4767]} zoom={13} style={{ height: "75vh", width: "100%" }}>
+        return <Map className="map" center={[38.0293, -78.4767]} zoom={14} style={{ height: "85vh", width: "100%" }}>
             {this.state.displayRestaurant !== null && <Popup
                 position={[
                     this.state.displayRestaurant.geometry.location.lat,
@@ -31,7 +31,7 @@ export default class RestaurantMap extends Component {
                 }}
             >
                 <h6>{this.state.displayRestaurant.name} {this.state.displayRestaurant.price_level != null ? "- " + "$".repeat(this.state.displayRestaurant.price_level) : ""}</h6>
-                <p>{this.state.displayRestaurant.opening_hours.open_now ? "Open now" : "Currently closed"}
+                <p>{this.state.displayRestaurant.opening_hours !== null ? this.state.displayRestaurant.opening_hours.open_now ? "Open now" : "Currently closed" : ""}
                     <br />Rating - {this.state.displayRestaurant.rating} <br />
                 Location - {this.state.displayRestaurant.vicinity}</p></Popup>}
             {/* {activePark && (

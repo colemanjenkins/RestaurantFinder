@@ -6,7 +6,7 @@ import Dropdown from 'react-bootstrap/Dropdown'
 
 import './TopPanel.css';
 
-const GOOGLE_API_KEY = process.env.REACT_APP_GOOGLE_API_KEY;
+const GOOGLE_API_KEY = process.env.REACT_APP_LAUNCH_API_KEY;
 const LOCATION = "38.0293,-78.4767" // Charlottesville coordinates
 const RADIUS = 5000 // 5 kilometers
 
@@ -25,9 +25,10 @@ export default class TopPanel extends Component {
         });
     }
 
-    keyPressed = (event) => {
-        if (event.key === "Enter") {
-            event.preventDefault();
+    keyPressed = (e) => {
+        if (e.key === "Enter") {
+            e.preventDefault();
+            // console.log(e.target.value);
             this.getData();
         }
     }
@@ -37,7 +38,6 @@ export default class TopPanel extends Component {
     }
 
     getData = () => {
-        console.log("test");
         const query = this.state.searchPhrase;
 
         console.log(query);
@@ -63,21 +63,21 @@ export default class TopPanel extends Component {
         return (
             <div className="topPanel">
                 <Container className="TopPanel">
-                    <Form>
+                    <h1 style={{ fontWeight: "heavy" }}>Charlottesville Restaurant Search</h1>
+                    <Form style={{ display: "inline-block", margin: "5px", minWidth: "300px", verticalAlign: "middle" }}>
                         <Form.Group>
-                            <h1 style={{ fontWeight: "heavy" }}>Charlottesville Restaurant Search</h1>
                             <Form.Control
                                 onChange={(e) => this.updateSearchPhrase(e.target.value)}
                                 onKeyPress={this.keyPressed}
                                 id="SearchText"
                                 className="SearchBar"
                                 type="textarea"
-                                placeholder="Search for a Charlottesville restaurant" />
+                                placeholder="Search for Charlottesville restaurants" />
                         </Form.Group>
                     </Form>
-                    <Button onClick={this.getData}>Search</Button>
+                    <Button style={{ display: "inline-block", margin: "5px", verticalAlign: "middle" }} onClick={this.getData}>Search</Button>
 
-                    <Dropdown>
+                    <Dropdown style={{ display: "inline-block", margin: "5px", verticalAlign: "middle" }}>
                         <Dropdown.Toggle variant="success" id="dropdown-basic">Sort by...</Dropdown.Toggle>
                         <Dropdown.Menu>
                             {sortVars.map(field => {

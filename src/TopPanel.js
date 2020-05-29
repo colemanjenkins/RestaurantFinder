@@ -42,6 +42,7 @@ export default class TopPanel extends Component {
 
         // console.log(query);
         const url = `https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/nearbysearch/json?key=${GOOGLE_API_KEY}&radius=${RADIUS}&location=${LOCATION}&type=restaurant&keyword=${query}`;
+        console.log(url);
 
         fetch(url)
             .then(

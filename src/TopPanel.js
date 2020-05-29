@@ -55,28 +55,28 @@ export default class TopPanel extends Component {
     }
 
     render() {
-        const vars = ["Prominence",
+        const sortVars = ["Prominence",
+            "Rating",
             "Price (Lowest to Highest)",
             "Price (Highest to Lowest)",
-            "Bakery",
+            "Open Now",
+            // "Bakery",
             "Bar",
             "Delivery",
-            "Food",
-            "Rating",
-            "Open Now",
-            "Restaurant",
+            // "Food",
+            // "Restaurant",
             "Takeout",
-            "Liquor Store",
-            "Tourist Attraction",
-            "Point of Interest",
-            "Establishment",
-            "Supermarket"];
+            // "Liquor Store",
+            // "Tourist Attraction",
+            // "Point of Interest",
+            // "Establishment",
+            // "Supermarket"
+        ];
         // alphabetize list
-        let beginning = vars.slice(0, 3);
-        let sorted = vars.slice(3, vars.length);
-        sorted.sort();
-        const sortVars = beginning.concat(sorted);
-
+        // let beginning = vars.slice(0, 3);
+        // let sorted = vars.slice(3, vars.length);
+        // sorted.sort();
+        // const sortVars = beginning.concat(sorted);
         return (
             <div className="topPanel">
                 <Container className="TopPanel">
@@ -100,13 +100,6 @@ export default class TopPanel extends Component {
                         <Dropdown.Menu>
                             {sortVars.map(field => {
                                 return <Dropdown.Item key={field} onClick={() => this.props.setSort(field)}>{field}</Dropdown.Item>
-
-                                //                                 return <Dropdown.Item onClick={() => this.props.setSort(field)}>{field}</Dropdown.Item>
-                                // >>>>>>> 24dfb1dd186402dcb6d665a17e1f5c21e7681c37
-                                //                                 return <Dropdown.Item key={field} onClick={() => this.props.setSort(field)}>{field}</Dropdown.Item>
-                                // =======
-                                //                                 return <Dropdown.Item onClick={() => this.props.setSort(field)}>{field}</Dropdown.Item>
-                                // >>>>>>> 24dfb1dd186402dcb6d665a17e1f5c21e7681c37
                             })}
                         </Dropdown.Menu>
                     </Dropdown>

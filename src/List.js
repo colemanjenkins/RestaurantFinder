@@ -37,8 +37,11 @@ export default class List extends Component {
 
     arrangeList = () => {
         let field = this.props.sortField;
-        const nameArr = ["Restaurant", "Bar", "Takeout", "Liquor Store", "Tourist Attraction", "Food", "Delivery", "Point of Interest", "Establishment", "Bakery", "Supermarket"];
-        const dataNameArr = ["restaurant", "bar", "meal_takeaway", "liquor_store", "tourist_attraction", "food", "meal_delivery", "point_of_interest", "establishment", "bakery", "grocery_or_supermarket"];
+        // const nameArr = ["Restaurant", "Bar", "Takeout", "Liquor Store", "Tourist Attraction", "Food", "Delivery", "Point of Interest", "Establishment", "Bakery", "Supermarket"];
+        // const dataNameArr = ["restaurant", "bar", "meal_takeaway", "liquor_store", "tourist_attraction", "food", "meal_delivery", "point_of_interest", "establishment", "bakery", "grocery_or_supermarket"];
+        const nameArr = ["Bar", "Takeout", "Delivery"];
+        const dataNameArr = ["bar", "meal_takeaway", "meal_delivery"];
+
         const namePos = nameArr.indexOf(field);
 
         if (field === "Prominence") {

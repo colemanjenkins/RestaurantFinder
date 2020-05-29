@@ -6,6 +6,9 @@
     position: center;
     text-align: center;
     align-items: center;
+    margin: 5px;
+    /* display: flex;
+    flex-direction: column; */
 }
 
 div.form-group {

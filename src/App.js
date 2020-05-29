@@ -38,11 +38,12 @@ export default class App extends Component {
    render() {
       return (
          <div className="App">
-            
-            <TopPanel
-               setData={this.setData}
-               passSearchInput={this.passSearchInput}
-               setSort={this.setSort} />
+            <div>
+               <TopPanel style={{ minWidth: "700px" }}
+                  setData={this.setData}
+                  passSearchInput={this.passSearchInput}
+                  setSort={this.setSort} />
+            </div>
             <div className="display">
                <List restaurants={this.state.restaurants}
                   displayRestaurantIndex={this.state.displayRestaurantIndex}
@@ -52,7 +53,6 @@ export default class App extends Component {
                   restaurants={this.state.restaurants}
                   setDisplayIndex={this.setDisplayIndex}
                   displayRestaurant={this.state.restaurants[this.state.displayRestaurantIndex]} />
-
             </div>
          </div>
       );

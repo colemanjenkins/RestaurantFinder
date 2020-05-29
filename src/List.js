@@ -14,23 +14,27 @@ export default class List extends Component {
     componentDidUpdate(prevProps) {
         if (this.props.sortField !== prevProps.sortField) {
             this.arrangeList();
-            console.log("changing sortfield")
+            // console.log("changing sortfield")
         }
         if (this.props.restaurants !== prevProps.restaurants) {
             this.setState({ mutatedList: this.props.restaurants })
-            console.log("changing data")
+            // console.log("changing data")
         }
     }
 
     arrangeList = () => {
         let field = this.props.sortField;
+        const nameArr = ["Restaurant", "Bar", "Takeout", "Liquor Store", "Tourist Attraction", "Food", "Delivery", "Point of Interest", "Establishment", "Bakery", "Supermarket"];
+        const dataNameArr = ["restaurant", "bar", "meal_takeaway", "liquor_store", "tourist_attraction", "food", "meal_delivery", "point_of_interest", "establishment", "bakery", "grocery_or_supermarket"];
+        const namePos = nameArr.indexOf(field);
+
         if (field === "Prominence") {
             this.setState({ mutatedList: this.props.restaurants });
-        }
-        else if (field === "Open Now") {
+        } else if (field === "Open Now") {
             this.setState({ mutatedList: this.props.restaurants.filter(place => place.opening_hours != null && place.opening_hours.open_now) })
-        }
-        else {
+        } else if (nameArr.includes(field)) {
+            this.setState({ mutatedList: this.props.restaurants.filter(place => place.types.includes(dataNameArr[namePos])) })
+        } else {
             let sortFunc;
             switch (field) {
                 case "Price (Lowest to Highest)":
@@ -65,18 +69,17 @@ export default class List extends Component {
         }
     }
     render() {
-        let count = 0;
-        return <div className="list" style={{ textAlign: "left" }}>
+        return <div className="list" style={{ textAlign: "left" }} >
             <Accordion activeKey={this.props.displayRestaurantIndex != null ? this.props.displayRestaurantIndex.toString() : null}>
                 {this.state.mutatedList.map(restaurant => {
                     return (
                         <Card key={restaurant.id}>
                             <Card.Header>
-                                <Accordion.Toggle 
-                                as={Button} 
-                                variant="link" 
-                                eventKey={this.props.restaurants.indexOf(restaurant).toString()}
-                                onClick={(e) => {this.props.setDisplayIndex(this.props.restaurants.indexOf(restaurant))}}
+                                <Accordion.Toggle
+                                    as={Button}
+                                    variant="link"
+                                    eventKey={this.props.restaurants.indexOf(restaurant).toString()}
+                                    onClick={(e) => { this.props.setDisplayIndex(this.props.restaurants.indexOf(restaurant)) }}
                                 >
                                     {restaurant.name} {restaurant.price_level != null ? "- " + "$".repeat(restaurant.price_level) : ""}
                                 </Accordion.Toggle>

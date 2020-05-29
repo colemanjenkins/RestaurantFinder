@@ -2,13 +2,7 @@ import React, { Component } from "react";
 import Accordion from 'react-bootstrap/Accordion';
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
-// import { render } from "@testing-library/react";
 import PropTypes from "prop-types";
-
-
-// const scrollToRef = (ref) => window.scrollTo(0,ref.current.offsetTop)
-
-// ({this.props.restaurant, this.props.restaurants, this.props.setDisplayIndex, displaythis.props.restaurantIndex}) 
 
 class ListEntry extends Component {
     static contextTypes = {
@@ -21,7 +15,7 @@ class ListEntry extends Component {
 
     componentDidUpdate(prevProps) {
         // update scroll destinations when sorting (i.e. changing list entry positions)
-        if(prevProps.name != null && this.props.name != prevProps.name){
+        if (prevProps.name != null && this.props.name != prevProps.name) {
             // console.log("adjusting " + prevProps.name + " to " + this.props.name)
             this.context.scroll.unregister(prevProps.name);
             this.context.scroll.register(this.props.name, this._element)

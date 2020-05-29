@@ -38,7 +38,7 @@ export default class App extends Component {
    render() {
       return (
          <div className="App">
-            
+
             <TopPanel
                setData={this.setData}
                passSearchInput={this.passSearchInput}
@@ -47,8 +47,8 @@ export default class App extends Component {
                <List restaurants={this.state.restaurants}
                   displayRestaurantIndex={this.state.displayRestaurantIndex}
                   setDisplayIndex={this.setDisplayIndex}
-                  sortField={this.state.sortField} 
-                  ref={scroller => this._scroller=scroller}/>
+                  sortField={this.state.sortField}
+                  ref={scroller => this._scroller = scroller} />
                <RestaurantMap
                   restaurants={this.state.restaurants}
                   setDisplayIndex={this.setDisplayIndex}

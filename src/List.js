@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import Accordion from 'react-bootstrap/Accordion';
-import Card from 'react-bootstrap/Card';
-import Button from 'react-bootstrap/Button';
 import { findDOMNode } from "react-dom";
 import scrollIntoView from "scroll-into-view"
 import PropTypes from "prop-types";
@@ -16,24 +14,22 @@ export default class List extends Component {
         }
     }
 
-    // () => { console.log("scrolling to " + restaurant.name); this.scrollTo(restaurant.name) }
-
     componentDidUpdate(prevProps) {
         if (this.props.sortField !== prevProps.sortField) {
             this.arrangeList();
-            console.log("changing sortfield")
+            // console.log("changing sortfield")
         }
         if (this.props.restaurants !== prevProps.restaurants) {
             this.setState({ mutatedList: this.props.restaurants })
-            console.log("changing data")
+            // console.log("changing data")
         }
         if (this.props.displayRestaurantIndex !== prevProps.displayRestaurantIndex) {
             const restaurant = this.props.restaurants[this.props.displayRestaurantIndex];
             try {
-                console.log("scrolling to " + restaurant.name);
+                // console.log("scrolling to " + restaurant.name);
                 this.scrollTo(restaurant.name)
             }
-            catch(error) {
+            catch (error) {
                 console.log(error);
             }
         }

@@ -48,7 +48,7 @@ export default class TopPanel extends Component {
                 response => response.json()
             ).then(
                 data => {
-                    console.log(data);
+                    // console.log(data);
                     this.props.setData(data);
                 }
             ).catch(error => console.log(error));
@@ -64,28 +64,28 @@ export default class TopPanel extends Component {
             <div className="topPanel">
                 <Container className="TopPanel">
                     <h1 style={{ fontWeight: "heavy" }}>Charlottesville Restaurant Search</h1>
-                        <Form style={{ display: "inline-block", margin: "5px", verticalAlign: "middle" }}>
-                            <Form.Group>
-                                <Form.Control 
-                                    style={{minWidth: "300px"}}
-                                    onChange={(e) => this.updateSearchPhrase(e.target.value)}
-                                    onKeyPress={this.keyPressed}
-                                    id="SearchText"
-                                    className="SearchBar"
-                                    type="textarea"
-                                    placeholder="Search for Charlottesville restaurants" />
-                            </Form.Group>
-                        </Form>
-                        <Button style={{ display: "inline-block", margin: "5px", verticalAlign: "middle" }} onClick={this.getData}>Search</Button>
+                    <Form style={{ display: "inline-block", margin: "5px", verticalAlign: "middle" }}>
+                        <Form.Group>
+                            <Form.Control
+                                style={{ minWidth: "300px" }}
+                                onChange={(e) => this.updateSearchPhrase(e.target.value)}
+                                onKeyPress={this.keyPressed}
+                                id="SearchText"
+                                className="SearchBar"
+                                type="textarea"
+                                placeholder="Search for Charlottesville restaurants" />
+                        </Form.Group>
+                    </Form>
+                    <Button style={{ display: "inline-block", margin: "5px", verticalAlign: "middle" }} onClick={this.getData}>Search</Button>
 
-                        <Dropdown style={{ display: "inline-block", margin: "5px", verticalAlign: "middle" }}>
-                            <Dropdown.Toggle variant="success" id="dropdown-basic">Sort by...</Dropdown.Toggle>
-                            <Dropdown.Menu>
-                                {sortVars.map(field => {
-                                    return <Dropdown.Item onClick={() => this.props.setSort(field)}>{field}</Dropdown.Item>
-                                })}
-                            </Dropdown.Menu>
-                        </Dropdown>
+                    <Dropdown style={{ display: "inline-block", margin: "5px", verticalAlign: "middle" }}>
+                        <Dropdown.Toggle variant="success" id="dropdown-basic">Sort by...</Dropdown.Toggle>
+                        <Dropdown.Menu>
+                            {sortVars.map(field => {
+                                return <Dropdown.Item onClick={() => this.props.setSort(field)}>{field}</Dropdown.Item>
+                            })}
+                        </Dropdown.Menu>
+                    </Dropdown>
                 </Container>
             </div >
         )

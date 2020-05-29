@@ -15,7 +15,7 @@
 .list {
   overflow-y: auto;
   height: 85vh;
-  min-width: 38vh;
+  min-width: 45vh;
 }
 
 .map {
@@ -32,4 +32,5 @@
   margin: 0 50px 10px 50px;
   padding-top: 10px;
   /* min-height: 150px; */
+  justify-content: center;
 }

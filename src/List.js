@@ -116,8 +116,7 @@ export default class List extends Component {
     }
 
     render() {
-        let count = 0;
-        return <div className="list" style={{ textAlign: "left" }}>
+        return <div className="list" style={{ textAlign: "left"}}>
             {/* {this.state.mutatedList.map((restaurant) => { return <button onClick={}>{restaurant.name}</button> })} */}
             <Accordion activeKey={this.props.displayRestaurantIndex != null ? this.props.displayRestaurantIndex.toString() : null}>
                 {this.state.mutatedList.map(restaurant => {

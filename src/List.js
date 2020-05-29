@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
 import Accordion from 'react-bootstrap/Accordion';
-import Card from 'react-bootstrap/Card';
-import Button from 'react-bootstrap/Button';
+import { findDOMNode } from "react-dom";
+import scrollIntoView from "scroll-into-view"
+import PropTypes from "prop-types";
+
+import ListEntry from "./ListEntry"
 
 export default class List extends Component {
     constructor(props) {
@@ -19,6 +22,16 @@ export default class List extends Component {
         if (this.props.restaurants !== prevProps.restaurants) {
             this.setState({ mutatedList: this.props.restaurants })
             // console.log("changing data")
+        }
+        if (this.props.displayRestaurantIndex !== prevProps.displayRestaurantIndex) {
+            const restaurant = this.props.restaurants[this.props.displayRestaurantIndex];
+            try {
+                // console.log("scrolling to " + restaurant.name);
+                this.scrollTo(restaurant.name)
+            }
+            catch (error) {
+                console.log(error);
+            }
         }
     }
 
@@ -68,31 +81,49 @@ export default class List extends Component {
             this.setState({ mutatedList: this.props.restaurants.slice().sort(sortFunc) });
         }
     }
+
+    static childContextTypes = {
+        scroll: PropTypes.object,
+    }
+    elements = {};
+
+    register = (name, ref) => {
+        this.elements[name] = ref;
+    }
+    unregister = (name) => {
+        delete this.elements[name];
+    }
+    getChildContext() {
+        return {
+            scroll: {
+                register: this.register,
+                unregister: this.unregister
+            }
+        }
+    }
+
+    scrollTo = (name) => {
+        const node = findDOMNode(this.elements[name]);
+        scrollIntoView(node, {
+            time: 500,
+            align: {
+                top: 0
+            }
+        })
+    }
+
     render() {
-        return <div className="list" style={{ textAlign: "left" }} >
+        let count = 0;
+        return <div className="list" style={{ textAlign: "left" }}>
+            {/* {this.state.mutatedList.map((restaurant) => { return <button onClick={}>{restaurant.name}</button> })} */}
             <Accordion activeKey={this.props.displayRestaurantIndex != null ? this.props.displayRestaurantIndex.toString() : null}>
                 {this.state.mutatedList.map(restaurant => {
                     return (
-                        <Card key={restaurant.id}>
-                            <Card.Header>
-                                <Accordion.Toggle
-                                    as={Button}
-                                    variant="link"
-                                    eventKey={this.props.restaurants.indexOf(restaurant).toString()}
-                                    onClick={(e) => { this.props.setDisplayIndex(this.props.restaurants.indexOf(restaurant)) }}
-                                >
-                                    {restaurant.name} {restaurant.price_level != null ? "- " + "$".repeat(restaurant.price_level) : ""}
-                                </Accordion.Toggle>
-                            </Card.Header>
-                            <Accordion.Collapse eventKey={this.props.restaurants.indexOf(restaurant).toString()}>
-                                <Card.Body>
-                                    Rating - {restaurant.rating}
-                                    <br />Location - {restaurant.vicinity}
-                                    <br />{(restaurant.opening_hours !== null && restaurant.opening_hours !== undefined) ?
-                                        restaurant.opening_hours ? "Open now" : "Currently closed" : ""}
-                                </Card.Body>
-                            </Accordion.Collapse>
-                        </Card>
+                        <ListEntry restaurant={restaurant}
+                            restaurants={this.props.restaurants}
+                            setDisplayIndex={this.props.setDisplayIndex}
+                            displayRestaurantIndex={this.props.displayRestaurantIndex}
+                            name={restaurant.name} />
                     )
                 })}
             </Accordion>

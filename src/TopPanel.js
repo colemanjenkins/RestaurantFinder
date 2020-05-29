@@ -48,7 +48,7 @@ export default class TopPanel extends Component {
                 response => response.json()
             ).then(
                 data => {
-                    console.log(data);
+                    // console.log(data);
                     this.props.setData(data);
                 }
             ).catch(error => console.log(error));
@@ -100,6 +100,13 @@ export default class TopPanel extends Component {
                         <Dropdown.Menu>
                             {sortVars.map(field => {
                                 return <Dropdown.Item key={field} onClick={() => this.props.setSort(field)}>{field}</Dropdown.Item>
+
+                                //                                 return <Dropdown.Item onClick={() => this.props.setSort(field)}>{field}</Dropdown.Item>
+                                // >>>>>>> 24dfb1dd186402dcb6d665a17e1f5c21e7681c37
+                                //                                 return <Dropdown.Item key={field} onClick={() => this.props.setSort(field)}>{field}</Dropdown.Item>
+                                // =======
+                                //                                 return <Dropdown.Item onClick={() => this.props.setSort(field)}>{field}</Dropdown.Item>
+                                // >>>>>>> 24dfb1dd186402dcb6d665a17e1f5c21e7681c37
                             })}
                         </Dropdown.Menu>
                     </Dropdown>

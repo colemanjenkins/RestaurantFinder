@@ -48,7 +48,8 @@ export default class App extends Component {
                <List restaurants={this.state.restaurants}
                   displayRestaurantIndex={this.state.displayRestaurantIndex}
                   setDisplayIndex={this.setDisplayIndex}
-                  sortField={this.state.sortField} />
+                  sortField={this.state.sortField}
+                  ref={scroller => this._scroller = scroller} />
                <RestaurantMap
                   restaurants={this.state.restaurants}
                   setDisplayIndex={this.setDisplayIndex}

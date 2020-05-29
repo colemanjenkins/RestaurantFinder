@@ -18,6 +18,15 @@ class ListEntry extends Component {
     componentDidMount() {
         this.context.scroll.register(this.props.name, this._element);
     }
+
+    componentDidUpdate(prevProps) {
+        // update scroll destinations when sorting (i.e. changing list entry positions)
+        if(prevProps.name != null && this.props.name != prevProps.name){
+            // console.log("adjusting " + prevProps.name + " to " + this.props.name)
+            this.context.scroll.unregister(prevProps.name);
+            this.context.scroll.register(this.props.name, this._element)
+        }
+    }
     componentWillUnmount() {
         this.context.scroll.unregister(this.props.name);
     }

@@ -16,6 +16,8 @@ export default class List extends Component {
         }
     }
 
+    // () => { console.log("scrolling to " + restaurant.name); this.scrollTo(restaurant.name) }
+
     componentDidUpdate(prevProps) {
         if (this.props.sortField !== prevProps.sortField) {
             this.arrangeList();
@@ -24,6 +26,16 @@ export default class List extends Component {
         if (this.props.restaurants !== prevProps.restaurants) {
             this.setState({ mutatedList: this.props.restaurants })
             console.log("changing data")
+        }
+        if (this.props.displayRestaurantIndex !== prevProps.displayRestaurantIndex) {
+            const restaurant = this.props.restaurants[this.props.displayRestaurantIndex];
+            try {
+                console.log("scrolling to " + restaurant.name);
+                this.scrollTo(restaurant.name)
+            }
+            catch(error) {
+                console.log(error);
+            }
         }
     }
 
@@ -103,7 +115,7 @@ export default class List extends Component {
     render() {
         let count = 0;
         return <div className="list" style={{ textAlign: "left" }}>
-            {this.state.mutatedList.map((restaurant) => { return <button onClick={() => {console.log("scrolling to " + restaurant.name); this.scrollTo(restaurant.name)}}>{restaurant.name}</button>} )}
+            {/* {this.state.mutatedList.map((restaurant) => { return <button onClick={}>{restaurant.name}</button> })} */}
             <Accordion activeKey={this.props.displayRestaurantIndex != null ? this.props.displayRestaurantIndex.toString() : null}>
                 {this.state.mutatedList.map(restaurant => {
                     return (

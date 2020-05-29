@@ -3,6 +3,8 @@ import Accordion from 'react-bootstrap/Accordion';
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 
+import ListEntry from "./ListEntry"
+
 export default class List extends Component {
     constructor(props) {
         super(props);
@@ -70,26 +72,7 @@ export default class List extends Component {
             <Accordion activeKey={this.props.displayRestaurantIndex != null ? this.props.displayRestaurantIndex.toString() : null}>
                 {this.state.mutatedList.map(restaurant => {
                     return (
-                        <Card key={restaurant.id}>
-                            <Card.Header>
-                                <Accordion.Toggle 
-                                as={Button} 
-                                variant="link" 
-                                eventKey={this.props.restaurants.indexOf(restaurant).toString()}
-                                onClick={(e) => {this.props.setDisplayIndex(this.props.restaurants.indexOf(restaurant))}}
-                                >
-                                    {restaurant.name} {restaurant.price_level != null ? "- " + "$".repeat(restaurant.price_level) : ""}
-                                </Accordion.Toggle>
-                            </Card.Header>
-                            <Accordion.Collapse eventKey={this.props.restaurants.indexOf(restaurant).toString()}>
-                                <Card.Body>
-                                    Rating - {restaurant.rating}
-                                    <br />Location - {restaurant.vicinity}
-                                    <br />{(restaurant.opening_hours !== null && restaurant.opening_hours !== undefined) ?
-                                        restaurant.opening_hours ? "Open now" : "Currently closed" : ""}
-                                </Card.Body>
-                            </Accordion.Collapse>
-                        </Card>
+                        <ListEntry restaurant={restaurant} restaurants={this.props.restaurants} setDisplayIndex={this.props.setDisplayIndex}/>
                     )
                 })}
             </Accordion>
